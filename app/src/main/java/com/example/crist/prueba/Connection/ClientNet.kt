@@ -50,17 +50,15 @@ fun Context.requestService(
             }
         }
         when (method) {
-            Constants.HttpTypeMethod.put -> getAPIService().requestServicePut(tag.url, request!!).subscribeOn(
+            Constants.HttpTypeMethod.put -> getAPIService().requestServicePut(request!!).subscribeOn(
                 Schedulers.io()
             ).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(callback)
             Constants.HttpTypeMethod.post -> getAPIService().requestServicePost(
-                tag.url,
                 request!!
             ).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(callback)
             Constants.HttpTypeMethod.get -> getAPIService().requestServiceGet(
-                tag.url
             ).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(callback)
 

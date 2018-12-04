@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">prueba</string>
     <string name="no_data">noData</string>
+    <string name="bank">Banco</string>
+    <string name="accept">Aceptar</string>
+    <string name="titularName">Nombre del titular</string>
+    <string name="document">Documento</string>
+    <string name="phone">Teléfono</string>
 </resources>

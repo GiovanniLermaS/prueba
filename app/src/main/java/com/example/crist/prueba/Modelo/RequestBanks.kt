@@ -10,9 +10,9 @@ class RequestBanks : BaseModel() {
     @SerializedName("command")
     var command: String? = null
     @SerializedName("merchant")
-    var merchant: Merchant? = null
+    var merchant = Merchant()
     @SerializedName("test")
     var test: Boolean? = null
     @SerializedName("bankListInformation")
-    var bankListInformation: BankList? = null
+    var bankListInformation = BankList()
 }
