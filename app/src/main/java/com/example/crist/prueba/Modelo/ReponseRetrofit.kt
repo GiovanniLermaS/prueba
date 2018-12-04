@@ -1,6 +1,5 @@
 package com.example.crist.prueba.Modelo
 
-import android.content.Context
 import com.example.crist.prueba.Presentation.BaseModel
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
