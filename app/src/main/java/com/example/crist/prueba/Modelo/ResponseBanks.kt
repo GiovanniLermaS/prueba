@@ -5,10 +5,14 @@ import com.google.gson.annotations.SerializedName
 
 class ResponseBanks : BaseModel() {
 
-    @SerializedName("code")
-    var code: String? = null
-    @SerializedName("error")
-    var error: String? = null
-    @SerializedName("banks")
-    var banks = ArrayList<Banks>()
+    @SerializedName("bankListResponse")
+    var bankListResponse: Bank? = null
+
+    class Bank : BaseModel() {
+
+        @SerializedName("code")
+        var code: String? = null
+        @SerializedName("banks")
+        var banks: Banks? = null
+    }
 }

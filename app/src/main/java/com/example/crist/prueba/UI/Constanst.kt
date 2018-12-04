@@ -4,7 +4,7 @@ class Constants {
 
     interface Connection {
         companion object {
-            val API_BASEURL = "http://admin.uinrun.com"
+            val API_BASEURL = "https://sandbox.api.payulatam.com"
         }
     }
 

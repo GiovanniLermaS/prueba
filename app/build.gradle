@@ -38,7 +38,8 @@ dependencies {
     implementation 'io.reactivex:rxandroid:1.2.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.23.4'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.23.4'
-    implementation files('libs/java-json.jar')
+    implementation files('/Users/cristianramirezmartinez/Proyectos/Prueba/java-json.jar')
+    implementation 'com.squareup.retrofit2:converter-simplexml:2.5.0'
 }
 
 kotlin {

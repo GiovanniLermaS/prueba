@@ -18,8 +18,6 @@ import org.json.JSONException
 import org.json.XML
 import org.json.JSONObject
 import java.util.ArrayList
-import kotlin.collections.ArrayList
-
 
 class HomeActivity : AppCompatActivity(), ResultService {
 
@@ -34,19 +32,25 @@ class HomeActivity : AppCompatActivity(), ResultService {
         requestBank.test = false
         requestBank.bankListInformation.paymentMethod = "PSE"
         requestBank.bankListInformation.paymentCountry = "CO"
-        requestService(requestBank, Constants.RepositoriesTag.BANKS, Constants.HttpTypeMethod.post)
+        requestService(
+            requestBank,
+            Constants.RepositoriesTag.BANKS,
+            Constants.HttpTypeMethod.post,
+            "/payments-api/4.0/service.cgi"
+        )
     }
 
-    override fun onDataReturn(result: ResponseRetrofit?, tag: Constants.RepositoriesTag) {
+    override fun onDataReturn(result: ResponseBanks?, tag: Constants.RepositoriesTag) {
         when (tag) {
             Constants.RepositoriesTag.BANKS -> {
                 val jsonObj: JSONObject?
                 try {
                     jsonObj = XML.toJSONObject(result.toString())
-                    val banks = BaseModel().objectFromJson(Gson().toJson(jsonObj), ResponseBanks::class.java) as ResponseBanks
+                    val banks =
+                        BaseModel().objectFromJson(Gson().toJson(jsonObj), ResponseBanks::class.java) as ResponseBanks
                     val kBanks = banks.banks
                     val arrayBanks = ArrayList<String>()
-                    //kBanks.mapTo(arrayBanks){it.description}
+                    kBanks.mapTo(arrayBanks) { it.description!! }
                     spBank.adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayBanks)
 
                 } catch (e: JSONException) {
@@ -54,11 +58,6 @@ class HomeActivity : AppCompatActivity(), ResultService {
                     e.printStackTrace()
                 }
             }
-            else -> return
         }
-    }
-
-    override fun onFailedResponse(result: ResponseRetrofit?, tag: Constants.RepositoriesTag) {
-
     }
 }

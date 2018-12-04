@@ -5,10 +5,15 @@ import com.google.gson.annotations.SerializedName
 
 class Banks : BaseModel() {
 
-    @SerializedName("id")
-    var id: String? = null
-    @SerializedName("description")
-    var description: String? = null
-    @SerializedName("pseCode")
-    var pseCode: String? = null
+    @SerializedName("bank")
+    var bank = ArrayList<ListBanks>()
+
+    class ListBanks : BaseModel() {
+        @SerializedName("id")
+        var id: String? = null
+        @SerializedName("description")
+        var description: String? = null
+        @SerializedName("pseCode")
+        var pseCode: String? = null
+    }
 }
