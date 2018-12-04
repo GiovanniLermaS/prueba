@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">prueba</string>
+    <string name="no_data">noData</string>
 </resources>
